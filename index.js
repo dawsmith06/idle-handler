@@ -1,7 +1,7 @@
 const idle  = (function(){
-    let options = {};
     return {  
         start(opts) {
+            this.options          = {};
             this.options.timeout  = opts.timeout  || 40;
             this.options.inactive = opts.inactive || 5;
             this.time    = 0;
