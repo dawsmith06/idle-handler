@@ -19,11 +19,11 @@ idleHandler.subscribe("onIdle",()=>{
    //timeout
 });
 
-idle.subscribe("onInactive",()=>{
+idleHandler.subscribe("onInactive",()=>{
    //window is inactive
 });
 
-idle.subscribe("onActive",()=>{
+idleHandler.subscribe("onActive",()=>{
    // window is active
 });
 ```
