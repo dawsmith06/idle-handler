@@ -27,12 +27,12 @@ const idle  = (function(){
         },
 
         setEvents(){
-            window.addEventListener('click',      () =>{ this.setWindowActive() });
-            window.addEventListener('keypress',   () =>{ this.setWindowActive() });
-            window.addEventListener('mouseover',  () =>{ this.setWindowActive() });
+            window.addEventListener('click',      () =>{ this.onWindowInteraction() });
+            window.addEventListener('keypress',   () =>{ this.onWindowInteraction() });
+            window.addEventListener('mouseover',  () =>{ this.onWindowInteraction() });
         },
 
-        setWindowActive(){
+        onWindowInteraction(){
             if(this.idle == "inactive"){
                 this.notify("active");
             }
