@@ -2,8 +2,8 @@ const idle  = (function(){
     let options = {};
     return {  
         start(opts) {
-            options.timeout  = opts.timeout  || 40;
-            options.inactive = opts.inactive || 5;
+            this.options.timeout  = opts.timeout  || 40;
+            this.options.inactive = opts.inactive || 5;
             this.time    = 0;
             this.idle    = "active";
             this.setTimer();
@@ -13,11 +13,11 @@ const idle  = (function(){
         setTimer(){
             this._timer = setInterval(() =>{
                 this.time++;
-                this.onTimeChange();
+                this.onTimerChange();
             } , 60000);
         },
 
-        onTimeChange(){
+        onTimerChange(){
             if(this.time == this.options.timeout){
                 this.dispatchChannel("idle");
             }
