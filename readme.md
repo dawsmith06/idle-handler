@@ -12,8 +12,8 @@ npm install dw-idle-handler
 ```javascript
 const idleHandler   = require('dw-idle-handler');
 idleHandler.start({
-    timeout  : 30,
-    inactive : 5
+    timeout  : 30, // minutes 
+    inactive : 5  
 });
 idleHandler.subscribe("onIdle",()=>{
    //timeout

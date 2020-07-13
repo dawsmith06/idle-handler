@@ -1,6 +1,6 @@
 {
   "name": "dw-idle-handler",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "Manage window inactivity",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,10 @@
     "idle",
     "user-inactivity"
   ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/dawsmith06/idle-handler"
+  },
   "author": "Darwin Rosso",
   "license": "MIT"
 }
