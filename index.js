@@ -55,4 +55,4 @@ const idle  = (function(){
     };
 }());
 
-module.exports.idle = idle;
+module.exports = idle;
