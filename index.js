@@ -46,8 +46,8 @@ const idle  = (function(){
             this.idle   = state;
         },
 
-        subscribe(channelName,callback){
-            let channel = new BroadcastChannel(channelName);
+        subscribe(name,callback){
+            let channel = new BroadcastChannel(name);
             channel.onmessage = ((e) =>{
                callback(e);
             });
