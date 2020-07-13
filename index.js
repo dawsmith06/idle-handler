@@ -19,10 +19,10 @@ const idle  = (function(){
 
         onTimerChange(){
             if(this.time == this.options.timeout){
-                this.dispatchChannel("idle");
-            }
+                this.notify("idle");
+            } 
             else if(this.time >= this.options.inactive && this.idle == "active"){
-                this.dispatchChannel("inactive");
+                this.notify("inactive");
             }
         },
 
@@ -34,12 +34,12 @@ const idle  = (function(){
 
         setWindowActive(){
             if(this.idle == "inactive"){
-                this.dispatchChannel("active");
+                this.notify("active");
             }
             this.time = 0;
         }, 
 
-        dispatchChannel(state){
+        notify(state){
             let State   = state.charAt(0).toUpperCase() + state.substring(1);
             let channel = new BroadcastChannel(`on${State}`);
             channel.postMessage({state : state});
