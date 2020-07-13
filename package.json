@@ -1,0 +1,15 @@
+{
+  "name": "dw-idle-handler",
+  "version": "0.0.4",
+  "description": "Manage window inactivity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "idle",
+    "user-inactivity"
+  ],
+  "author": "Darwin Rosso",
+  "license": "MIT"
+}
