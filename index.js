@@ -6,11 +6,11 @@ const idle  = (function(){
             this.options.inactive = opts.inactive || 5;
             this.time    = 0;
             this.idle    = "active";
-            this.setTimer();
+            this.startTimer();
             this.setEvents();      
         },
 
-        setTimer(){
+        startTimer(){
             this._timer = setInterval(() =>{
                 this.time++;
                 this.onTimerChange();
@@ -22,34 +22,28 @@ const idle  = (function(){
                 this.dispatchChannel("idle");
             }
             else if(this.time >= this.options.inactive && this.idle == "active"){
-                this.setPageInactive();
+                this.dispatchChannel("inactive");
             }
         },
 
         setEvents(){
-            window.addEventListener('click',      () =>{ this.setPageActive() });
-            window.addEventListener('keypress',   () =>{ this.setPageActive() });
-            window.addEventListener('mouseover',  () =>{ this.setPageActive() });
+            window.addEventListener('click',      () =>{ this.setWindowActive() });
+            window.addEventListener('keypress',   () =>{ this.setWindowActive() });
+            window.addEventListener('mouseover',  () =>{ this.setWindowActive() });
         },
 
+        setWindowActive(){
+            if(this.idle == "inactive"){
+                this.dispatchChannel("active");
+            }
+            this.time = 0;
+        }, 
 
         dispatchChannel(state){
             let State   = state.charAt(0).toUpperCase() + state.substring(1);
             let channel = new BroadcastChannel(`on${State}`);
             channel.postMessage({state : state});
-            this.idle = state;
-            localStorage.setItem("idle",state);
-        },
-
-        setPageInactive(){
-            this.dispatchChannel("inactive");
-        },
-        
-        setPageActive(){
-            if(this.idle == "inactive"){
-                this.dispatchChannel("active");
-            }
-            this.time = 0;
+            this.idle   = state;
         },
 
         subscribe(channelName,callback){
