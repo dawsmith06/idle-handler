@@ -19,7 +19,6 @@ const idle  = (function(){
 
         onTimerChange(){
             if(this.time == this.options.timeout){
-                this.notify("idle");
                 this.notify("timeout");
             } 
             else if(this.time >= this.options.inactive && this.idle == "active"){
