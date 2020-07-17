@@ -1,6 +1,6 @@
 {
   "name": "dw-idle-handler",
-  "version": "0.1.0 q",
+  "version": "0.1.0",
   "description": "Manage window inactivity",
   "main": "index.js",
   "scripts": {
