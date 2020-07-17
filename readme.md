@@ -8,24 +8,34 @@ npm install dw-idle-handler
 ```
 
 ## Usage
+```javascript
+idleHandler.start({
+    timeout  : 30, // minutes 
+    inactive : 5  
+});
+idleHandler.on("timeout",()=>{
+   //timeout
+});
 
+idleHandler.on("inactive",()=>{
+   //window is inactive
+});
+
+idleHandler.on("active",()=>{
+   // window is active
+   //Detected user interaction by one of this events : click, keypress, mouseover and touchstart
+});
+```
+### For previous versions <= 0.0.9
 ```javascript
 const idleHandler   = require('dw-idle-handler');
 idleHandler.start({
     timeout  : 30, // minutes 
     inactive : 5  
 });
-idleHandler.subscribe("onIdle",()=>{
-   //timeout
-});
-
-idleHandler.subscribe("onInactive",()=>{
-   //window is inactive
-});
-
-idleHandler.subscribe("onActive",()=>{
-   // window is active
-});
+idleHandler.subscribe("onIdle",callback);
+idleHandler.subscribe("onInactive",callback);
+idleHandler.subscribe("onActive",callback);
 ```
 
 ## Contributing

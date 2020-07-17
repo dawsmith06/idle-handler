@@ -20,6 +20,7 @@ const idle  = (function(){
         onTimerChange(){
             if(this.time == this.options.timeout){
                 this.notify("idle");
+                this.notify("timeout");
             } 
             else if(this.time >= this.options.inactive && this.idle == "active"){
                 this.notify("inactive");
@@ -30,6 +31,7 @@ const idle  = (function(){
             window.addEventListener('click',      () =>{ this.onWindowInteraction() });
             window.addEventListener('keypress',   () =>{ this.onWindowInteraction() });
             window.addEventListener('mouseover',  () =>{ this.onWindowInteraction() });
+            window.addEventListener('touchstart', () =>{ this.onWindowInteraction() });
         },
 
         onWindowInteraction(){
@@ -46,8 +48,8 @@ const idle  = (function(){
             this.idle   = state;
         },
 
-        subscribe(name,callback){
-            let channel = new BroadcastChannel(name);
+        on(name,callback){
+            let channel = new BroadcastChannel(`on${name}`);
             channel.onmessage = ((e) =>{
                callback(e);
             });
@@ -56,3 +58,4 @@ const idle  = (function(){
 }());
 
 module.exports = idle;
+
