@@ -22,7 +22,7 @@ idleHandler.on("inactive",()=>{
 });
 
 idleHandler.on("active",()=>{
-   // window is active
+   //window is active
    //Detected user interaction by one of this events : click, keypress, mouseover and touchstart
 });
 ```
