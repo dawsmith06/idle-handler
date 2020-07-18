@@ -26,7 +26,11 @@ idleHandler.on("active",()=>{
    //Detected user interaction by one of this events : click, keypress, mouseover and touchstart
 });
 ```
-### For previous versions <= 0.0.9
+## Note
+Thanks to the Tabs Manager package and local storage the library can has a persistent timer
+even if there are multiple browser tabs the timer will be the same for each window only alowing one lnterval timer for the active tab or the last active tab, anyway when a tab has passed timeout all tabs will be notified with the timeout event
+
+## For previous versions <= 0.0.9
 ```javascript
 const idleHandler   = require('dw-idle-handler');
 idleHandler.start({
