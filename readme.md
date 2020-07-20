@@ -1,5 +1,4 @@
 # Idle Handler
-
 A small and simple free dependency to manage window idle.
 
 ## Installation
@@ -10,11 +9,13 @@ npm install dw-idle-handler
 ## Usage
 ```javascript
 idleHandler.start({
-    timeout  : 30, // minutes 
-    inactive : 5  
+   timeout  : 30, // minutes 
+   inactive : 5  
 });
-idleHandler.on("timeout",()=>{
-   //timeout
+idleHandler.on("timeout",(e)=>{
+   if(e.tab.lastFocus){
+      //this was the last focused browser tab
+   }
 });
 
 idleHandler.on("inactive",()=>{
@@ -27,8 +28,8 @@ idleHandler.on("active",()=>{
 });
 ```
 ## Note
-Thanks to the Tabs Manager package and local storage the library can has a persistent timer
-even if there are multiple browser tabs the timer will be the same for each window only alowing one lnterval timer for the active tab or the last active tab, anyway when a tab has passed timeout all tabs will be notified with the timeout event
+Thanks to the  [TabsManager](https://www.npmjs.com/package/browser-tabs-manager) package and local storage the library can has a persistent timer
+even if there are multiple browser tabs the timer will be the same for each window only allowing only one lnterval timer for the active tab or the last active tab, anyway when a tab has passed timeout all tabs will be notified with the timeout event
 
 ## For previous versions <= 0.0.9
 ```javascript

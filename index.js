@@ -138,7 +138,9 @@ const idle  = (function(){
         notify(state){
             let State   = state.charAt(0).toUpperCase() + state.substring(1);
             let channel = new BroadcastChannel(`on${State}`);
-            channel.postMessage({state : state});
+            channel.postMessage({
+                tab : TabsManager.getTab()
+            });
             this.idle   = state;
         },
         
