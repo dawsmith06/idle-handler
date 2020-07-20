@@ -8,10 +8,13 @@ npm install dw-idle-handler
 
 ## Usage
 ```javascript
+const idleHandler   = require('dw-idle-handler');
+
 idleHandler.start({
    timeout  : 30, // minutes 
    inactive : 5  
 });
+
 idleHandler.on("timeout",(e)=>{
    if(e.tab.lastFocus){
       //this was the last focused browser tab
@@ -33,7 +36,6 @@ even if there are multiple browser tabs the timer will be the same for each wind
 
 ## For previous versions <= 0.0.9
 ```javascript
-const idleHandler   = require('dw-idle-handler');
 idleHandler.start({
     timeout  : 30, // minutes 
     inactive : 5  
