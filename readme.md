@@ -32,7 +32,7 @@ idleHandler.on("active",()=>{
 ```
 ## Note
 Thanks to the  [TabsManager](https://www.npmjs.com/package/browser-tabs-manager) package and local storage the library can has a persistent timer
-even if there are multiple browser tabs the timer will be the same for each window only allowing only one lnterval timer for the active tab or the last active tab, anyway when a tab has passed timeout all tabs will be notified with the timeout event
+even if there are multiple browser tabs the timer will be the same for each window only allowing only one lnterval timer for the active tab or the last active tab, anyway when a tab has passed timeout all tabs will be notified by the timeout event
 
 ## For previous versions <= 0.0.9
 ```javascript
